@@ -2,10 +2,12 @@
 
 A small web app that turns your photo and signature into files that meet the rules of Indian exam and job application forms. Plain HTML, CSS and JavaScript. No framework, no build step, no internet needed, no login.
 
+**Try it online:** https://harshreaver.github.io/Form-Photo-Fixer/
+
 ## How to run
 
-1. Double-click `index.html` (it opens in Chrome, Edge, Firefox or Safari). That is all.
-2. On a phone, copy the folder to the phone and open `index.html` in the browser, or host the folder on any static server once. After the first load it needs no network.
+1. Download this repo (on GitHub: Code > Download ZIP), unzip it and double-click `index.html` (it opens in Chrome, Edge, Firefox or Safari). That is all.
+2. On a phone, open the link above in Chrome. Once the page has loaded it needs no network, so you can turn Wi-Fi off and keep using it.
 
 There is nothing to install and no external file is loaded (no CDN, no fonts, no API). Your pictures never leave your device.
 
@@ -47,3 +49,9 @@ Notes:
 - `style.css` look and layout
 - `app.js` presets, crop, compression, custom presets, download
 - `prompts.md` the prompt this was built from
+
+## Tested
+
+- With a fake 12 MP photo (4000 x 3000) and a signature: IBPS RRB gave a 42.66 KB photo at 200 x 230 (limit 20-50 KB), GATE 2027 and UPSC CAPF also passed.
+- A strict custom preset (800 x 1000 px, 10-40 KB) keeps the exact size and gives 39.74 KB at 16% quality.
+- Custom presets are still there after a reload.
