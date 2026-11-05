@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form Photo Fixer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Form Photo Fixer</h1>
+  <p>Get your photo and signature ready for Indian exam and job forms. Everything runs on your device, even with Wi-Fi off.</p>
+</header>
+
+<main>
+  <section class="card" id="presetCard">
+    <label for="preset"><strong>1. Pick the form</strong></label>
+    <select id="preset"></select>
+    <p id="presetInfo" class="note"></p>
+    <button type="button" id="deleteCustom" hidden>Delete this custom preset</button>
+
+    <details>
+      <summary>Make my own custom preset</summary>
+      <form id="customForm">
+        <label>Preset name <input name="name" required maxlength="40" placeholder="My college form"></label>
+        <fieldset>
+          <legend>Photo rules</legend>
+          <label>Width (px) <input name="pw" type="number" min="20" max="4000" required></label>
+          <label>Height (px) <input name="ph" type="number" min="20" max="4000" required></label>
+          <label>Min size (KB) <input name="pmin" type="number" min="0" step="any" required value="0"></label>
+          <label>Max size (KB) <input name="pmax" type="number" min="1" step="any" required></label>
+        </fieldset>
+        <fieldset>
+          <legend>Signature rules</legend>
+          <label>Width (px) <input name="sw" type="number" min="20" max="4000" required></label>
+          <label>Height (px) <input name="sh" type="number" min="20" max="4000" required></label>
+          <label>Min size (KB) <input name="smin" type="number" min="0" step="any" required value="0"></label>
+          <label>Max size (KB) <input name="smax" type="number" min="1" step="any" required></label>
+        </fieldset>
+        <button type="submit" class="primary">Save custom preset in this browser</button>
+      </form>
+    </details>
+  </section>
+
+  <div class="slots">
+    <section class="card slot" data-kind="photo">
+      <h2>2. Photo</h2>
+      <p class="rule"></p>
+      <div class="body">
+        <label class="btn primary">Choose photo from device<input type="file" accept="image/*" hidden></label>
+        <div class="stage"><canvas></canvas></div>
+        <label class="zoomRow">Zoom <input type="range" class="zoom" min="1" max="5" step="0.01" value="1"></label>
+        <p class="note">Drag the picture to move it. Use the slider, mouse wheel or two fingers to zoom. Put the face inside the oval.</p>
+        <div class="result" hidden>
+          <img alt="Finished photo preview">
+          <dl></dl>
+          <p class="badge"></p>
+          <p class="note help" hidden></p>
+          <a class="btn primary">Download photo (JPG)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card slot" data-kind="sig">
+      <h2>3. Signature</h2>
+      <p class="rule"></p>
+      <div class="body">
+        <label class="btn primary">Choose signature from device<input type="file" accept="image/*" hidden></label>
+        <div class="stage"><canvas></canvas></div>
+        <label class="zoomRow">Zoom <input type="range" class="zoom" min="1" max="5" step="0.01" value="1"></label>
+        <p class="note">Sign with black or dark blue ink on plain white paper, take a straight photo, then fit the signature inside the box.</p>
+        <div class="result" hidden>
+          <img alt="Finished signature preview">
+          <dl></dl>
+          <p class="badge"></p>
+          <p class="note help" hidden></p>
+          <a class="btn primary">Download signature (JPG)</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p>Rules can change. Always compare with the current official notice before you submit. Sources are listed in README.md.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
